@@ -23,6 +23,6 @@ const PORT = process.env.PORT || 3000;
 //On met notre server sur écoute
 app.listen(PORT, () =>{
     //une fois que le port est sur écoute cette fonction 
-    //est exécuté
+    //est exécutée
     console.log(`App running at http://localhost:${PORT}`)
 });
