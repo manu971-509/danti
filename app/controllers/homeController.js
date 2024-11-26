@@ -1,6 +1,6 @@
 const homeController ={
     getHomePage:(request, response) =>{
-        response.render('projet.ejs');
+        response.render('home.ejs');
     }
 }
 

@@ -1,3 +1,5 @@
+BEGIN;
+CREATE DATABASE danti;
 DROP TABLE IF EXISTS userinfo, category, product, address CASCADE;
 CREATE TABLE userinfo (
     userid SERIAL PRIMARY KEY,
@@ -25,7 +27,7 @@ CREATE TABLE product (
 	category_id INTEGER NOT NULL REFERENCES category(categoryid),
     name VARCHAR(100) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    illustration VARCHAR(255) NOT NULL,
+    illustration BYTEA NOT NULL,
     price DECIMAL NOT NULL,
     tva DECIMAL NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -45,5 +47,5 @@ CREATE TABLE address (
     updated_at TIMESTAMPTZ
 );
 
-
+COMMIT;
 
