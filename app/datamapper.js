@@ -10,7 +10,7 @@ const dataMapper = {
     },
 
     getProductDetailsRequest: async (productById) => {
-        const SQLquery = `SELECT * FROM product WHERE productid = $1`;
+        const SQLquery = `SELECT * FROM product WHERE id = $1`;
     
         try {
             const result = await client.query(SQLquery, [productById]);
@@ -22,7 +22,7 @@ const dataMapper = {
     }
     
     // getProductDetailsRequest : async(productById) => {
-    //     const SQLquery = `SELECT * FROM product  WHERE productid = ${productById} `;
+    //     const SQLquery = `SELECT * FROM product  WHERE id = ${productById} `;
 
     //     console.log(SQLquery);
     //     const result = await client.query(SQLquery);

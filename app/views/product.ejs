@@ -3,8 +3,7 @@
 <div class="container">
   <img
     class="img-product"
-    src="https://cdn.pixabay.com/photo/2015/11/21/15/29/camera-1055066_1280.jpg
-            "
+    src="<%= product.illustration_binary %>"
     alt="Caméra 1"
   />
 
@@ -12,7 +11,9 @@
   <p><%= product.description %></p>
   <p><%= product.price %>€</p>
   <button>
-    <a href="/product/:id/productdetails">Voir détails produits</a>
+    <a href="/product/<%= product.id %>/productdetails"
+      >Voir détails produits</a
+    >
   </button>
 </div>
 

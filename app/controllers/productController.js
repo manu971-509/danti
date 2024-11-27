@@ -13,8 +13,7 @@ const productController = {
             response.render("404.ejs")
         }
     },
-    //getProductDetails: async (request, response) => {
-        // Récupération de l'Id dans l'Url:
+    
         getProductDetails: async (request, response) => {
             const productById = Number(request.params.id);
         console.log(productById)
@@ -34,20 +33,7 @@ const productController = {
         
         }
         
-        // const productById = Number(request.params.productid);
-        // try {
-
-        //     // Récupération du détail d'un produit dans la BDD.
-
-        //     const productDetails = await dataMapper.getProductDetailsRequest(productById);
-
-        //     response.render("productdetails.ejs", { productDetails }); 
-            
-        // } catch (error) {
-        //     console.log(error);
-        //     response.render("404.ejs")
-        // }
-    //},
+        
 };
 
 
