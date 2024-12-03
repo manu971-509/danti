@@ -1,0 +1,17 @@
+<%- include('partials/header.ejs') %>
+
+<div class="wrapper">
+  <main class="mainContainer mt-5">
+    <h1>Connexion</h1>
+    <form action="/login" method="POST">
+      <label>Email:</label>
+      <input type="email" name="email" required />
+      <label>Mot de passe:</label>
+      <input type="password" name="password" required />
+      <button type="submit">Se connecter</button>
+    </form>
+    <p><a href="/signup">Vous n'avez pas de compte ?</a></p>
+  </main>
+</div>
+
+<%- include('partials/footer.ejs') %>

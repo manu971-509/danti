@@ -35,6 +35,25 @@
       .nav a:hover {
         background-color: #005bb5;
       }
+
+      .footer {
+        text-align: center;
+        padding: 50px 0;
+        background-color: #333;
+        color: white;
+      }
+      .footer p {
+        margin: 0;
+      }
+      .go-right {
+        float: right;
+      }
+      .go-left {
+        float: left;
+      }
+
+
+
       .container {
         width: 80%;
         margin: 20px auto;
@@ -67,26 +86,10 @@
         height: auto;
       }
 
-      .footer {
-        text-align: center;
-        padding: 50px 0;
-        background-color: #333;
-        color: white;
-      }
-      .footer p {
-        margin: 0;
-      }
-      .go-right {
-        float: right;
-      }
-      .go-left {
-        float: left;
-      }
-
+      
       .containertitle {
         width: 80%;
         margin: 20px auto;
-        
       }
 
 

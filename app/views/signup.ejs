@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs") %>
+
+<main class="container m-5">
+  <h1>Inscription</h1>
+  <form action="/signup" method="POST">
+    <label for="lastname">Nom:</label>
+    <input type="text" name="lastname" required />
+
+    <label for="firstname">Prénom:</label>
+    <input type="text" name="firstname" required />
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" required />
+
+    <label for="password">Mot de passe:</label>
+    <input type="password" name="password" required />
+
+    <button type="submit">S'inscrire</button>
+  </form>
+</main>
+
+<%- include("partials/footer.ejs") %>

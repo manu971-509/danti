@@ -6,7 +6,7 @@ CREATE TABLE userinfo (
     lastname VARCHAR(100) NOT NULL,
     firstname VARCHAR(100) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    roles BOOLEAN NOT NULL,
+    roles VARCHAR(20) DEFAULT 'customer',
     password VARCHAR(255) NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ
