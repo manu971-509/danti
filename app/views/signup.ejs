@@ -1,22 +1,73 @@
 <%- include("partials/header.ejs") %>
 
-<main class="container m-5">
-  <h1>Inscription</h1>
-  <form action="/signup" method="POST">
-    <label for="lastname">Nom:</label>
-    <input type="text" name="lastname" required />
+<main class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-center mb-4">Inscription</h1>
+      <form action="/signup" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Nom:</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            class="form-control"
+            placeholder="Votre nom"
+            required
+          />
+          <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+        </div>
 
-    <label for="firstname">Prénom:</label>
-    <input type="text" name="firstname" required />
+        <div class="mb-3">
+          <label for="firstname" class="form-label">Prénom:</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            class="form-control"
+            placeholder="Votre prénom"
+            required
+          />
+          <div class="invalid-feedback">Veuillez entrer votre prénom.</div>
+        </div>
 
-    <label for="email">Email:</label>
-    <input type="email" name="email" required />
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Votre email"
+            required
+          />
+          <div class="invalid-feedback">
+            Veuillez entrer une adresse email valide.
+          </div>
+        </div>
 
-    <label for="password">Mot de passe:</label>
-    <input type="password" name="password" required />
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Votre mot de passe"
+            required
+          />
+          <div class="invalid-feedback">Veuillez entrer un mot de passe.</div>
+        </div>
 
-    <button type="submit">S'inscrire</button>
-  </form>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success">S'inscrire</button>
+        </div>
+      </form>
+      <p class="text-center mt-3">
+        <a href="/login" class="link-primary">Vous avez déjà un compte ?</a>
+      </p>
+    </div>
+  </div>
 </main>
 
 <%- include("partials/footer.ejs") %>

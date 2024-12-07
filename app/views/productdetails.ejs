@@ -1,20 +1,29 @@
 <%- include("partials/header.ejs") %>
+<main>
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Fiche détaillée du produit</h2>
 
-<h5 class="containertitle">Fiche détallée du produit</h5>
-<div class="container">
-  <img
-    class="img-product"
-    src="<%= productDetails.illustration_binary %>"
-    alt="<%= productDetails.name %>"
-  />
+    <div class="row g-4 align-items-center">
+      <!-- Section de l'image -->
+      <div class="col-md-6">
+        <img
+          class="img-fluid rounded shadow"
+          src="<%= productDetails.illustration_binary %>"
+          alt="<%= productDetails.name %>"
+        />
+      </div>
 
-  <h3><%= productDetails.name %></h3>
-  <p><%= productDetails.description %></p>
-  <p><%= productDetails.price %>€</p>
-  <button>
-    <!-- vue et route panier -->
-    <a href="/product/panier">Ajouter au panier</a>
-  </button>
-</div>
+      <!-- Section des informations produit -->
+      <div class="col-md-6">
+        <h3 class="mb-3"><%= productDetails.name %></h3>
+        <p class="text-muted mb-3"><%= productDetails.description %></p>
+        <p class="fs-4 fw-bold text-success"><%= productDetails.price %>€</p>
 
+        <a href="/product/panier" class="btn btn-primary btn-lg">
+          Ajouter au panier
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
 <%- include("partials/footer.ejs") %>

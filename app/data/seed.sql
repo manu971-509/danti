@@ -10,7 +10,8 @@ INSERT INTO category (name) VALUES
     ('laptop'),
     ('smartphone'),
     ('headphones'),
-    ('printer');
+    ('printer'),
+    ('camera 6'),;
 
 INSERT INTO product (user_id, category_id, name, description, illustration, price, tva) VALUES
     (1, 1, 'camera', 'Caméra infrarouge', 'https://cdn.pixabay.com/photo/2018/05/28/20/31/camera-3437077_640.jpg', 400, 20),
@@ -18,6 +19,8 @@ INSERT INTO product (user_id, category_id, name, description, illustration, pric
     (3, 3, 'smartphone', 'Smartphone dernier cri', 'https://cdn.pixabay.com/photo/2014/05/02/21/50/phone-336112_640.jpg', 800, 20),
     (4, 4, 'headphones', 'Casque audio de qualité', 'https://cdn.pixabay.com/photo/2017/01/22/19/12/headphones-2000597_640.jpg', 150, 20),
     (5, 5, 'printer', 'Imprimante multifonction', 'https://cdn.pixabay.com/photo/2014/07/01/12/35/printer-381472_640.jpg', 200, 20);
+    (6, 6, 'camera 6', 'Caméra professionnelle Lorem ipsum', 'https://cdn.pixabay.com/photo/2016/03/10/16/13/camera-1248682_640.jpg', 600, 20);
+
 
 INSERT INTO address (user_id, phone, codepostal, city) VALUES
     (1, '0143058690', '91139', 'Grigny'),

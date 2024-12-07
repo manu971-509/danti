@@ -1,0 +1,139 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container my-5">
+  <h1 class="text-center mb-4 text-primary">Page d'administration privée</h1>
+
+  
+            <!-- Section pour afficher tous les produits -->
+            <section class="mb-5">
+              <h2 class="text-secondary my-5">Liste des produits</h2>
+              <div class="table-responsive">
+                  <table class="table table-striped table-bordered">
+                  <thead class="table-dark text-center">
+                      <tr>
+                      <th>ID</th>
+                      <th>Nom</th>
+                      <th>Description</th>
+                      <th>illustration_binary</th>
+                      <th>Prix</th>
+                      <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% for (const product of productList) { %>
+                      <tr>
+                      <td><%= product.id %></td>
+                      <td><%= product.name %></td>
+                      <td><%= product.description %></td>
+                      <td><%= product.illustration %></td>
+                      <td><%= product.price %>€</td>
+                      <td class="d-flex gap-2">
+                          <a
+                          href="/admin/product/<%= product.id %>/edit"
+                          class="btn btn-warning btn-sm"
+                          >
+                          Modifier
+                          </a>
+                          <form
+                          action="/admin/product/<%= product.id %>/delete"
+                          method="POST"
+                          class="m-0"
+                          >
+                          <button
+                              type="submit"
+                              class="btn btn-danger btn-sm"
+                              onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?');"
+                          >
+                              Supprimer
+                          </button>
+                          </form>
+                      </td>
+                      </tr>
+                      <% } %>
+                  </tbody>
+                  </table>
+              </div>
+              </section>
+  
+              <!-- Formulaire pour ajouter un produit -->
+              <section>
+                 <h2 class="text-secondary">Ajouter un produit</h2>
+                  <form
+                      action="/admin/product/add"
+                      method="POST"
+                      class="needs-validation"
+                      novalidate
+                  >
+                      <div class="mb-3">
+                      <label for="name" class="form-label">Nom :</label>
+                      <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          class="form-control"
+                          placeholder="Entrez le nom du produit"
+                          required
+                      />
+                      <div class="invalid-feedback">Veuillez entrer le nom du produit.</div>
+                      </div>
+  
+                      <div class="mb-3">
+                      <label for="description" class="form-label">Description :</label>
+                      <textarea
+                          id="description"
+                          name="description"
+                          class="form-control"
+                          rows="3"
+                          placeholder="Entrez une description"
+                          required
+                      ></textarea>
+                      <div class="invalid-feedback">Veuillez entrer une description.</div>
+                      </div>
+  
+                      <div class="mb-3">
+                      <label for="price" class="form-label">Prix (€) :</label>
+                      <input
+                          type="number"
+                          id="price"
+                          name="price"
+                          class="form-control"
+                          placeholder="Entrez le prix du produit"
+                          required
+                      />
+                      <div class="invalid-feedback">Veuillez entrer un prix.</div>
+                      </div>
+                      <div class="mb-3">
+                      <label for="tva" class="form-label">tva (€) :</label>
+                      <input
+                          type="number"
+                          id="tva"
+                          name="tva"
+                          class="form-control"
+                          placeholder="Entrez votre tva"
+                          required
+                      />
+                      <div class="invalid-feedback">Veuillez entrer la tva.</div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="illustration_binary" class="form-label">Image du produit:</label>
+                          <input
+                              type="url"
+                              id="illustration_binary"
+                              name="illustration_binary"
+                              class="form-control"
+                              placeholder="Veuillez choisir votre image produit"
+                              required
+                          />
+                          
+                          </div>
+                      <div class="d-grid">
+                      <button type="submit" class="btn btn-success btn-lg">
+                          Ajouter le produit
+                      </button>
+                  </div>
+              </form>
+          </section>
+      </div>
+  </main>
+
+<%- include("partials/footer.ejs") %>

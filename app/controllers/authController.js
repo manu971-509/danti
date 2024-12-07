@@ -78,7 +78,7 @@ const authController = {
 
       // Redirection basée sur le rôle
       if (user.roles === "admin") {
-        return res.redirect("/adminPage"); // Redirige vers la page d'administration
+        return res.redirect("/admin"); // Redirige vers la page d'administration
       } else if (user.roles === "customer") {
         return res.redirect("/"); // Redirige vers le tableau de bord utilisateur
       } else {
@@ -90,9 +90,51 @@ const authController = {
     }
   },
   // Déconnexion
-  logout: (req, res) => {
+  getLogoutPage: (req, res) => {
     res.clearCookie("token"); // Supprime le cookie JWT
-    res.redirect("/login");
+    res.redirect("/");
+  },
+
+  postLogin: async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+      // Vérifiez si l'utilisateur existe
+      const query = `SELECT * FROM userinfo WHERE email = $1`;
+      const result = await client.query(query, [email]);
+
+      if (result.rows.length === 0) {
+        return res.status(400).send("Email ou mot de passe incorrect");
+      }
+
+      const user = result.rows[0];
+
+      // Comparez les mots de passe
+      const isMatch = await bcrypt.compare(password, user.userpassword);
+
+      if (!isMatch) {
+        return res.status(400).send("Email ou mot de passe incorrect");
+      }
+
+      // Stockez les informations utilisateur dans la session
+      req.session.isAuthenticated = true;
+      req.session.user = {
+        id: user.userid,
+        email: user.email,
+        firstname: user.firstname,
+      };
+
+      // Redirigez vers la page d'accueil
+      res.redirect("/");
+    } catch (error) {
+      console.error("Erreur lors de la connexion :", error);
+      res.status(500).send("Erreur serveur");
+    }
+  },
+
+  logout: (req, res) => {
+    res.clearCookie("token"); // Supprime le cookie contenant le token JWT
+    res.redirect("/"); // Redirige vers la page de connexion
   },
 };
 
